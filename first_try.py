@@ -7,35 +7,35 @@ driver = webdriver.WebDriver(executable_path='chromedriver.exe')
 
 driver.get('https://habr.com')
 
-time.sleep(3)
+time.sleep(5)
 
 search_button_locator = By.XPATH, '//*[@data-test-id="search-button"]'
 search_button = driver.find_element(*search_button_locator)
 search_button.click()
 
-time.sleep(1)
+time.sleep(5)
 
 # вбить текст
 search_input_locator = By.CLASS_NAME, 'tm-input-text-decorated__input'
 search_input = driver.find_element(*search_input_locator)
-text_to_search = 'Selenium'
+text_to_search = 'NTF'
 search_input.send_keys(text_to_search)
 
-time.sleep(1)
+time.sleep(5)
 
 # нажать на иконку поиска
 search_icon_locator = By.CSS_SELECTOR, 'span.tm-search__icon'
 search_icon = driver.find_element(*search_icon_locator)
 search_icon.click()
 
-time.sleep(1)
+time.sleep(5)
 
 # посчитать количество записей (20)
 article_locator = By.TAG_NAME, 'article'
-articls = driver.find_element(*article_locator)
-print(f'Number of articles is {len(articls)}')
+articles = driver.find_elements(*article_locator)
+print(f'Number of articles is {len(articles)}')
 
-time.sleep(1)
+time.sleep(5)
 
 # посчитать количество страниц (50)
 last_page_locator = By.XPATH, '(//*[@class="tm-pagination__page"])[last()]'
